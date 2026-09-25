@@ -7,11 +7,8 @@ type PublicImageProps = {
   width?: number;
   height?: number;
   fill?: boolean;
-  priority?: boolean;
-  sizes?: string;
 };
 
-/** Звичайний img з /public — без sharp і next/image на білді */
 export default function PublicImage({
   src,
   alt,

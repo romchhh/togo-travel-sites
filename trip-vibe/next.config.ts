@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: monorepoRoot(__dirname),
   outputFileTracingExcludes: outputFileTracingExcludesFor("trip-vibe"),
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

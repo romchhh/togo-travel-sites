@@ -6,7 +6,7 @@ import HomeTourOffersSection from "@/components/HomeTourOffersSection";
 import AboutPage from "@/components/pages/AboutPage";
 import ContactPage from "@/components/pages/ContactPage";
 // import TelegramModal from "@/components/TelegramModal";
-import Image from "next/image";
+import PublicImage from "@/components/PublicImage";
 import { submitLead } from "@/lib/submitLead";
 import { useState } from "react";
 
@@ -246,27 +246,27 @@ export default function Home() {
       <HomeTourOffersSection />
 
       <section id="Foto-section" className="flex flex-wrap">
-        <Image
+        <PublicImage
           src="/default0.jpg"
           width={400}
           height={400}
           alt="Фото з подорожі"
-          className="flex-1 min-w-[200px] object-cover"
-        ></Image>
-        <Image
+          className="min-w-[200px] flex-1 object-cover"
+        />
+        <PublicImage
           src="/default0.jpg"
           width={400}
           height={400}
           alt="Фото з подорожі"
-          className="flex-1 min-w-[200px] object-cover"
-        ></Image>
-        <Image
+          className="min-w-[200px] flex-1 object-cover"
+        />
+        <PublicImage
           src="/default0.jpg"
           width={400}
           height={400}
           alt="Фото з подорожі"
-          className="flex-1 min-w-[200px] object-cover"
-        ></Image>
+          className="min-w-[200px] flex-1 object-cover"
+        />
       </section>
 
       <section id="about">

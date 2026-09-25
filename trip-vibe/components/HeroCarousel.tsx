@@ -2,7 +2,7 @@
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css"; // base styles
-import Image from "next/image";
+import PublicImage from "@/components/PublicImage";
 
 export default function HeroCarousel({
   onSlideClick,
@@ -54,21 +54,18 @@ export default function HeroCarousel({
             >
               <div className="relative mx-auto w-full md:w-[1500px] h-[450px] md:h-[650px]">
                 {/* Desktop Image */}
-                <Image
+                <PublicImage
                   src={slide.img}
                   alt={slide.alt}
                   fill
-                  className="hidden sm:block object-cover object-center"
-                  priority={index === 0}
+                  className="hidden sm:block object-center sm:object-cover"
                 />
 
-                {/* Mobile Image */}
-                <Image
+                <PublicImage
                   src={slide.img_sm}
                   alt={slide.alt}
                   fill
-                  className="block sm:hidden object-contain object-center"
-                  priority={index === 0}
+                  className="block object-contain object-center sm:hidden"
                 />
               </div>
 

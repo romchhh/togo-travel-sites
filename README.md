@@ -4,7 +4,7 @@
 |-------|---------------------|----------|-----|
 | `join/` | join-up.com.ua | 3005 | Саламатіна С.Є. |
 | `joinUp/` | joinup.market | 3006 | Саламатін К.О. (Tailwind 3, без sharp на білді) |
-| `trip-vibe/` | tripvibe.com.ua | 3007 | Гайдабука Н.В. |
+| `trip-vibe/` | tripvibe.com.ua | 3007 | Гайдабука Н.В. (Tailwind 3, як joinUp) |
 
 Monorepo на **npm workspaces**: один `node_modules` у корені, кожен сайт — workspace зі своїм `package.json`.
 
@@ -28,27 +28,19 @@ chmod +x scripts/sync-public-assets.sh
 
 ```bash
 cd togotravel   # корінь репозиторію
-npm install     # спільний node_modules у корені (+ postinstall для sharp / Tailwind oxide)
+npm install     # спільний node_modules у корені
 ```
 
-**Linux-сервер (VPS):** якщо білд падає на `native binding` або `sharp`, перевстановіть залежності на самому сервері (не копіюйте `node_modules` з Mac):
+**Linux-сервер (VPS):** після `git pull` завжди ставте залежності на сервері (не копіюйте `node_modules` з Mac):
 
 ```bash
 git pull
 rm -rf node_modules
-npm install          # postinstall + ensure-native-deps
-npm run build        # ще раз перевіряє oxide перед білдом
+npm install
+npm run build
 ```
 
-Якщо joinUp/trip-vibe все одно падають на `Cannot find native binding`:
-
-```bash
-npm install @tailwindcss/oxide-linux-x64-gnu@4.3.3 --force --include=optional
-node scripts/ensure-native-deps.js
-npm run build:joinUp
-```
-
-Не використовуйте `npm install --omit=optional` і не копіюйте `node_modules` з macOS.
+joinUp і trip-vibe використовують **Tailwind 3** (без `@tailwindcss/oxide`). Node **18+** достатньо.
 
 ## Запуск
 

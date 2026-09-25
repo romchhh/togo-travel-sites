@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import PublicImage from "@/components/PublicImage";
 import FooterRequisites from "@/components/FooterRequisites";
 import { siteFop } from "@/data/siteFop";
 
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <Link href="/" className="inline-block">
-              <Image
+              <PublicImage
                 src="/logo.png"
                 alt="TripVibe"
                 width={140}
@@ -67,14 +67,14 @@ export default function Footer() {
           <p className="flex w-full flex-wrap items-center justify-between gap-2">
             <span>© {new Date().getFullYear()} TripVibe</span>
             <span className="flex items-center gap-2 opacity-80">
-              <Image
+              <PublicImage
                 src="/payments/Visa_Inc._logo.svg"
                 alt="Visa"
                 width={32}
                 height={12}
                 className="rounded-sm bg-white px-1 py-0.5"
               />
-              <Image
+              <PublicImage
                 src="/payments/MasterCard_Logo.svg.png"
                 alt="Mastercard"
                 width={32}

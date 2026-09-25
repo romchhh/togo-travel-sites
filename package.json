@@ -6,15 +6,6 @@
     "joinUp",
     "trip-vibe"
   ],
-  "optionalDependencies": {
-    "@tailwindcss/oxide-darwin-arm64": "4.3.3",
-    "@tailwindcss/oxide-darwin-x64": "4.3.3",
-    "@tailwindcss/oxide-linux-arm64-gnu": "4.3.3",
-    "@tailwindcss/oxide-linux-arm64-musl": "4.3.3",
-    "@tailwindcss/oxide-linux-x64-gnu": "4.3.3",
-    "@tailwindcss/oxide-linux-x64-musl": "4.3.3",
-    "@tailwindcss/oxide-wasm32-wasi": "4.3.3"
-  },
   "overrides": {
     "postcss": "8.5.28",
     "next": {
@@ -22,7 +13,6 @@
     }
   },
   "scripts": {
-    "postinstall": "node scripts/ensure-native-deps.js",
     "dev:join": "npm run dev -w join",
     "dev:joinUp": "npm run dev -w join-up",
     "dev:trip-vibe": "npm run dev -w trip-vibe",

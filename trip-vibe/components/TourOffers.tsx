@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import PublicImage from "@/components/PublicImage";
 import { tourDestinations } from "@togotravel/shared/data/tourOffers";
 
 export default function TourOffers() {
@@ -17,12 +17,11 @@ export default function TourOffers() {
                 className="ui-card overflow-hidden border border-line bg-white"
               >
                 <div className="relative aspect-[16/10] w-full bg-surface">
-                  <Image
+                  <PublicImage
                     src={offer.image}
                     alt={offer.title}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
                 <div className="p-5">

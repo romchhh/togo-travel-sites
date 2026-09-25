@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import PublicImage from "@/components/PublicImage";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -40,13 +40,12 @@ export default function Header() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:h-[4.5rem]">
         <Link href="/" className="shrink-0" aria-label="TripVibe — головна">
-          <Image
+          <PublicImage
             src="/logo.png"
             alt="TripVibe"
             width={140}
             height={28}
             className="h-7 w-auto rounded-md brightness-0 invert transition md:h-8"
-            priority
           />
         </Link>
 
@@ -100,7 +99,7 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between border-b border-white/15 px-5 py-4">
-          <Image
+          <PublicImage
             src="/logo.png"
             alt="TripVibe"
             width={120}
