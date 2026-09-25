@@ -45,5 +45,7 @@ npm run dev:trip-vibe   # http://localhost:3007
 
 ```bash
 npm run build
-npm run audit
+npm run audit    # очікується 0 vulnerabilities (postcss підтягується через overrides у кореневому package.json)
 ```
+
+**Не запускайте** `npm audit fix --force` на сервері — він може відкотити Next.js до старої версії. Достатньо `npm install` з репозиторію.

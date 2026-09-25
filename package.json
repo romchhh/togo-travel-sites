@@ -6,6 +6,12 @@
     "joinUp",
     "trip-vibe"
   ],
+  "overrides": {
+    "postcss": "8.5.28",
+    "next": {
+      "postcss": "8.5.28"
+    }
+  },
   "scripts": {
     "dev:join": "npm run dev -w join",
     "dev:joinUp": "npm run dev -w join-up",
