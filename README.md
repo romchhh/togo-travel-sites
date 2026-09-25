@@ -3,7 +3,7 @@
 | Папка | Домен (орієнтовно) | Dev-порт | ФОП |
 |-------|---------------------|----------|-----|
 | `join/` | join-up.com.ua | 3005 | Саламатіна С.Є. |
-| `joinUp/` | joinup.market | 3006 | Саламатін К.О. |
+| `joinUp/` | joinup.market | 3006 | Саламатін К.О. (Tailwind 3, без sharp на білді) |
 | `trip-vibe/` | tripvibe.com.ua | 3007 | Гайдабука Н.В. |
 
 Monorepo на **npm workspaces**: один `node_modules` у корені, кожен сайт — workspace зі своїм `package.json`.
