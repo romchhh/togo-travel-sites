@@ -36,11 +36,19 @@ npm install     # спільний node_modules у корені (+ postinstall �
 ```bash
 git pull
 rm -rf node_modules
-npm install
-npm run build
+npm install          # postinstall + ensure-native-deps
+npm run build        # ще раз перевіряє oxide перед білдом
 ```
 
-Не використовуйте `npm install --omit=optional` — для Tailwind v4 потрібні optional native-пакети.
+Якщо joinUp/trip-vibe все одно падають на `Cannot find native binding`:
+
+```bash
+npm install @tailwindcss/oxide-linux-x64-gnu@4.3.3 --force --include=optional
+node scripts/ensure-native-deps.js
+npm run build:joinUp
+```
+
+Не використовуйте `npm install --omit=optional` і не копіюйте `node_modules` з macOS.
 
 ## Запуск
 

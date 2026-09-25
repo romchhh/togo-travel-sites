@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * npm workspaces + lockfile з macOS часто не ставлять optional native-модулі на Linux.
- * Після install перевіряємо @tailwindcss/oxide та sharp для поточної платформи.
+ * Tailwind oxide + sharp for the current OS (npm optional-deps bug on Linux CI/VPS).
  */
 const { spawnSync } = require("child_process");
 const fs = require("fs");
@@ -10,19 +9,39 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const OXIDE_VERSION = "4.3.3";
 
-const OXIDE_BY_PLATFORM = {
+const OXIDE_NATIVE = {
   linux: {
-    x64: "@tailwindcss/oxide-linux-x64-gnu",
-    arm64: "@tailwindcss/oxide-linux-arm64-gnu",
+    x64: [
+      "@tailwindcss/oxide-linux-x64-gnu",
+      "@tailwindcss/oxide-linux-x64-musl",
+    ],
+    arm64: [
+      "@tailwindcss/oxide-linux-arm64-gnu",
+      "@tailwindcss/oxide-linux-arm64-musl",
+    ],
   },
   darwin: {
-    x64: "@tailwindcss/oxide-darwin-x64",
-    arm64: "@tailwindcss/oxide-darwin-arm64",
+    x64: ["@tailwindcss/oxide-darwin-x64"],
+    arm64: ["@tailwindcss/oxide-darwin-arm64"],
   },
 };
 
-function npmInstall(packages) {
-  const args = ["install", ...packages, "--no-audit", "--no-fund", "--include=optional"];
+function scopedModuleDir(pkgName) {
+  const slash = pkgName.indexOf("/");
+  const scope = pkgName.slice(0, slash);
+  const name = pkgName.slice(slash + 1);
+  return path.join(ROOT, "node_modules", scope, name);
+}
+
+function npmInstall(packages, extraArgs = []) {
+  const args = [
+    "install",
+    ...packages,
+    "--no-audit",
+    "--no-fund",
+    "--include=optional",
+    ...extraArgs,
+  ];
   const result = spawnSync("npm", args, {
     cwd: ROOT,
     stdio: "inherit",
@@ -33,23 +52,59 @@ function npmInstall(packages) {
   }
 }
 
-function exists(pkgName) {
-  return fs.existsSync(path.join(ROOT, "node_modules", pkgName));
+function oxideLoads() {
+  try {
+    const oxidePath = path.join(ROOT, "node_modules", "@tailwindcss", "oxide");
+    if (!fs.existsSync(oxidePath)) return false;
+    require(oxidePath);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
-const oxidePkg = OXIDE_BY_PLATFORM[process.platform]?.[process.arch];
-const toInstall = [];
+function installOxideForPlatform() {
+  const natives = OXIDE_NATIVE[process.platform]?.[process.arch] ?? [];
+  const missing = natives.filter((pkg) => !fs.existsSync(scopedModuleDir(pkg)));
+  if (missing.length > 0) {
+    console.log("[ensure-native-deps] installing native oxide:", missing.join(", "));
+    npmInstall(missing.map((p) => `${p}@${OXIDE_VERSION}`));
+  }
 
-if (oxidePkg && !exists(oxidePkg)) {
-  console.log(`[ensure-native-deps] missing ${oxidePkg}, installing…`);
-  toInstall.push(`${oxidePkg}@${OXIDE_VERSION}`);
+  if (!oxideLoads() && process.platform === "linux") {
+    console.log("[ensure-native-deps] native oxide missing, forcing linux bindings…");
+    npmInstall(
+      natives.map((p) => `${p}@${OXIDE_VERSION}`),
+      ["--force"]
+    );
+  }
+
+  if (!oxideLoads() && process.platform === "linux") {
+    console.log("[ensure-native-deps] trying wasm oxide fallback…");
+    npmInstall([`@tailwindcss/oxide-wasm32-wasi@${OXIDE_VERSION}`], [
+      "--force",
+      "--cpu=wasm32",
+    ]);
+  }
 }
 
-if (!exists("sharp")) {
-  console.log("[ensure-native-deps] missing sharp, installing…");
-  toInstall.push("sharp@^0.34.2");
+if (!oxideLoads()) {
+  installOxideForPlatform();
 }
 
-if (toInstall.length > 0) {
-  npmInstall(toInstall);
+if (!fs.existsSync(path.join(ROOT, "node_modules", "sharp"))) {
+  console.log("[ensure-native-deps] installing sharp…");
+  npmInstall(["sharp@^0.35.4"]);
 }
+
+if (!oxideLoads()) {
+  console.error(
+    "[ensure-native-deps] @tailwindcss/oxide still fails to load.\n" +
+      "  rm -rf node_modules && npm install\n" +
+      "  node -v   # need Node 20+\n" +
+      "  npm install @tailwindcss/oxide-linux-x64-gnu@4.3.3 --force"
+  );
+  process.exit(1);
+}
+
+console.log("[ensure-native-deps] OK (tailwind oxide + sharp)");
