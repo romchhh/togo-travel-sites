@@ -28,8 +28,19 @@ chmod +x scripts/sync-public-assets.sh
 
 ```bash
 cd togotravel   # корінь репозиторію
-npm install     # спільний node_modules у корені
+npm install     # спільний node_modules у корені (+ postinstall для sharp / Tailwind oxide)
 ```
+
+**Linux-сервер (VPS):** якщо білд падає на `native binding` або `sharp`, перевстановіть залежності на самому сервері (не копіюйте `node_modules` з Mac):
+
+```bash
+git pull
+rm -rf node_modules
+npm install
+npm run build
+```
+
+Не використовуйте `npm install --omit=optional` — для Tailwind v4 потрібні optional native-пакети.
 
 ## Запуск
 
