@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import trip_vibe from "@/public/trip_vibe.svg";
+import PublicImage from "@/components/PublicImage";
 
 export default function TelegramPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,8 +37,8 @@ export default function TelegramPopup() {
           <p className="mt-2 text-sm leading-relaxed text-muted">
             Знижки та актуальні пропозиції у нашій спільноті.
           </p>
-          <Image
-            src={trip_vibe}
+          <PublicImage
+            src="/trip_vibe.svg"
             className="mx-auto mt-4 h-auto w-28"
             alt=""
             width={112}

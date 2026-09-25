@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Tailwind oxide + sharp for the current OS (npm optional-deps bug on Linux CI/VPS).
+ * trip-vibe (Tailwind v4) may need native oxide on Linux.
+ * join / joinUp do not — postinstall must not fail npm install.
  */
 const { spawnSync } = require("child_process");
 const fs = require("fs");
@@ -28,28 +29,15 @@ const OXIDE_NATIVE = {
 
 function scopedModuleDir(pkgName) {
   const slash = pkgName.indexOf("/");
-  const scope = pkgName.slice(0, slash);
-  const name = pkgName.slice(slash + 1);
-  return path.join(ROOT, "node_modules", scope, name);
+  return path.join(ROOT, "node_modules", pkgName.slice(0, slash), pkgName.slice(slash + 1));
 }
 
 function npmInstall(packages, extraArgs = []) {
-  const args = [
-    "install",
-    ...packages,
-    "--no-audit",
-    "--no-fund",
-    "--include=optional",
-    ...extraArgs,
-  ];
-  const result = spawnSync("npm", args, {
-    cwd: ROOT,
-    stdio: "inherit",
-    env: process.env,
-  });
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
-  }
+  spawnSync(
+    "npm",
+    ["install", ...packages, "--no-audit", "--no-fund", "--include=optional", ...extraArgs],
+    { cwd: ROOT, stdio: "inherit", env: process.env }
+  );
 }
 
 function oxideLoads() {
@@ -63,48 +51,25 @@ function oxideLoads() {
   }
 }
 
-function installOxideForPlatform() {
+if (!oxideLoads()) {
   const natives = OXIDE_NATIVE[process.platform]?.[process.arch] ?? [];
   const missing = natives.filter((pkg) => !fs.existsSync(scopedModuleDir(pkg)));
   if (missing.length > 0) {
-    console.log("[ensure-native-deps] installing native oxide:", missing.join(", "));
+    console.log("[ensure-native-deps] optional (trip-vibe):", missing.join(", "));
     npmInstall(missing.map((p) => `${p}@${OXIDE_VERSION}`));
   }
-
   if (!oxideLoads() && process.platform === "linux") {
-    console.log("[ensure-native-deps] native oxide missing, forcing linux bindings…");
     npmInstall(
       natives.map((p) => `${p}@${OXIDE_VERSION}`),
       ["--force"]
     );
   }
-
-  if (!oxideLoads() && process.platform === "linux") {
-    console.log("[ensure-native-deps] trying wasm oxide fallback…");
-    npmInstall([`@tailwindcss/oxide-wasm32-wasi@${OXIDE_VERSION}`], [
-      "--force",
-      "--cpu=wasm32",
-    ]);
-  }
 }
 
-if (!oxideLoads()) {
-  installOxideForPlatform();
-}
-
-if (!fs.existsSync(path.join(ROOT, "node_modules", "sharp"))) {
-  console.log("[ensure-native-deps] installing sharp…");
-  npmInstall(["sharp@^0.35.4"]);
-}
-
-if (!oxideLoads()) {
-  console.error(
-    "[ensure-native-deps] @tailwindcss/oxide still fails to load.\n" +
-      "  rm -rf node_modules && npm install\n" +
-      "  node -v   # need Node 20+\n" +
-      "  npm install @tailwindcss/oxide-linux-x64-gnu@4.3.3 --force"
+if (oxideLoads()) {
+  console.log("[ensure-native-deps] tailwind oxide OK");
+} else {
+  console.warn(
+    "[ensure-native-deps] tailwind oxide not loaded — join/joinUp OK; trip-vibe needs Node 20+ or reinstall on Linux"
   );
-  process.exit(1);
 }
-
-console.log("[ensure-native-deps] OK (tailwind oxide + sharp)");

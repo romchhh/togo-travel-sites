@@ -1,24 +1,21 @@
-import Image from "next/image";
-import image1 from "@/public/whyJoinUs/img1.jpeg";
-import image2 from "@/public/whyJoinUs/img2.jpg";
-import image3 from "@/public/whyJoinUs/img3.jpg";
+import PublicImage from "@/components/PublicImage";
 
 export default function WhyJoinUp() {
   const textItems = [
     {
       id: 1,
       text: "Тур від найбільшого туроператора",
-      img: image1,
+      img: "/whyJoinUs/img1.jpeg",
     },
     {
       id: 2,
       text: "Індивідуальний підбір",
-      img: image2,
+      img: "/whyJoinUs/img2.jpg",
     },
     {
       id: 3,
       text: "Вигідні умови покупки",
-      img: image3,
+      img: "/whyJoinUs/img3.jpg",
     },
   ];
 
@@ -41,11 +38,11 @@ export default function WhyJoinUp() {
               className="group overflow-hidden rounded-[1.5rem] bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
+                <PublicImage
                   src={item.img}
                   alt={item.text}
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                  className="transition duration-500 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
                 <p className="absolute inset-x-0 bottom-0 p-5 font-display text-lg font-semibold text-white md:text-xl">

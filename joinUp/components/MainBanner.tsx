@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import backImg from "@/public/main_banner_bg.jpg";
 import { sendToBitrix24 } from "@/utils/sendToBitrix";
 
 export default function MainBanner() {
@@ -62,7 +61,7 @@ export default function MainBanner() {
     <section className="relative min-h-screen overflow-hidden">
       <div
         className="absolute inset-0 scale-105 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backImg.src})` }}
+        style={{ backgroundImage: "url(/main_banner_bg.jpg)" }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/45 to-brand/25" />
 

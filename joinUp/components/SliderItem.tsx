@@ -1,5 +1,4 @@
-import { StaticImageData } from "next/image";
-import Image from "next/image";
+import PublicImage from "@/components/PublicImage";
 
 export default function SliderItem({
   destination,
@@ -8,7 +7,7 @@ export default function SliderItem({
   onClick,
 }: {
   destination: string;
-  image: StaticImageData;
+  image: string;
   isActive: boolean;
   onClick: () => void;
 }) {
@@ -21,11 +20,11 @@ export default function SliderItem({
     >
       <div className="overflow-hidden rounded-[1.35rem] bg-white shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
         <div className="relative h-40 overflow-hidden md:h-60">
-          <Image
+          <PublicImage
             src={image}
             alt={destination}
             fill
-            className="object-cover transition-transform duration-500 hover:scale-110"
+            className="transition-transform duration-500 hover:scale-110"
           />
         </div>
         <div className="bg-ink px-4 py-4 text-center text-white md:px-6 md:py-5">

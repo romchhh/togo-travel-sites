@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.jpg";
+import PublicImage from "@/components/PublicImage";
 import FooterRequisites from "@/components/FooterRequisites";
 import { siteFop } from "@/data/siteFop";
 
@@ -10,8 +9,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <Image
-              src={logo}
+            <PublicImage
+              src="/logo.jpg"
               alt="JoinUp"
               className="h-12 w-auto rounded-lg md:h-14"
             />

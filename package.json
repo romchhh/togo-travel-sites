@@ -6,9 +6,6 @@
     "joinUp",
     "trip-vibe"
   ],
-  "dependencies": {
-    "sharp": "^0.35.4"
-  },
   "optionalDependencies": {
     "@tailwindcss/oxide-darwin-arm64": "4.3.3",
     "@tailwindcss/oxide-darwin-x64": "4.3.3",
@@ -29,7 +26,7 @@
     "dev:join": "npm run dev -w join",
     "dev:joinUp": "npm run dev -w join-up",
     "dev:trip-vibe": "npm run dev -w trip-vibe",
-    "build": "node scripts/ensure-native-deps.js && npm run build -w join && npm run build -w join-up && npm run build -w trip-vibe",
+    "build": "npm run build -w join && npm run build -w join-up && npm run build -w trip-vibe",
     "build:join": "npm run build -w join",
     "build:joinUp": "npm run build -w join-up",
     "build:trip-vibe": "npm run build -w trip-vibe",

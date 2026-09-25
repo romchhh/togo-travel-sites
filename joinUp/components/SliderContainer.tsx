@@ -1,14 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import SliderItem from "./SliderItem";
-import indiaImg from "@/public/countries/india.jpg";
-import thailandImg from "@/public/countries/tailand.jpg";
-import egiptImg from "@/public/countries/egipt.jpg";
-import israelImg from "@/public/countries/israel.jpg";
-import oaeImg from "@/public/countries/oae.jpg";
-import bulguriaImg from "@/public/countries/bulguria.jpg";
-import tanzaniaImg from "@/public/countries/tanzania.jpg";
-import turkeyImg from "@/public/countries/turkey.jpg";
 import Modal from "./Modal";
 
 export default function SliderContainer({
@@ -41,42 +33,42 @@ export default function SliderContainer({
     {
       id: 1,
       destination: "Танзанія",
-      image: tanzaniaImg,
+      image: "/countries/tanzania.jpg",
     },
     {
       id: 2,
       destination: "Єгипет",
-      image: egiptImg,
+      image: "/countries/egipt.jpg",
     },
     {
       id: 3,
       destination: "Ізраїль",
-      image: israelImg,
+      image: "/countries/israel.jpg",
     },
     {
       id: 4,
       destination: "Болгарія",
-      image: bulguriaImg,
+      image: "/countries/bulguria.jpg",
     },
     {
       id: 5,
       destination: "ОАЕ",
-      image: oaeImg,
+      image: "/countries/oae.jpg",
     },
     {
       id: 6,
       destination: "Індія",
-      image: indiaImg,
+      image: "/countries/india.jpg",
     },
     {
       id: 7,
       destination: "Таїланд",
-      image: thailandImg,
+      image: "/countries/tailand.jpg",
     },
     {
       id: 8,
       destination: "Туреччина",
-      image: turkeyImg,
+      image: "/countries/turkey.jpg",
     },
   ];
 

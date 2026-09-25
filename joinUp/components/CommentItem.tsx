@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import PublicImage from "@/components/PublicImage";
 
 export default function CommentItem({
   name,
@@ -8,13 +8,13 @@ export default function CommentItem({
   comment,
 }: {
   name: string;
-  image: StaticImageData;
+  image: string;
   comment: string;
 }) {
   return (
     <div className="mx-auto flex min-h-[250px] w-full max-w-sm items-center rounded-[1.75rem] bg-gradient-to-br from-brand to-brand-dark p-5 text-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] sm:min-h-[300px] sm:max-w-4xl sm:p-8">
       <div className="flex w-full items-start gap-4 sm:gap-6">
-        <Image
+        <PublicImage
           src={image}
           alt={`${name} відгук`}
           width={60}

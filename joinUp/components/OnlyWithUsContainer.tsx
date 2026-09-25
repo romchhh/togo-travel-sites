@@ -1,10 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import photo from "@/public/onlywithus.jpg";
-import photo2 from "@/public/onlywithus2.jpg";
-import arrowImage from "@/public/arrow.png";
-import arrowBlackImage from "@/public/arrow_black.png";
+import PublicImage from "@/components/PublicImage";
 import { sendToBitrix24 } from "@/utils/sendToBitrix";
 
 const countries = [
@@ -98,7 +94,7 @@ export default function OnlyWithUsContainer({ type }: { type?: string }) {
       </h1>
     );
 
-  const photoSrc = type === "type1" ? photo : photo2;
+  const photoSrc = type === "type1" ? "/onlywithus.jpg" : "/onlywithus2.jpg";
 
   const content =
     type === "type1" ? (
@@ -206,7 +202,7 @@ export default function OnlyWithUsContainer({ type }: { type?: string }) {
       <div className="relative z-10 w-full mx-auto flex flex-col">
         {title}
         <div className="flex flex-col-reverse md:flex-row items-center justify-end">
-          <Image
+          <PublicImage
             src={photoSrc}
             alt="Only With Us"
             className="h-auto md:h-64 w-auto"
@@ -221,17 +217,17 @@ export default function OnlyWithUsContainer({ type }: { type?: string }) {
             >
               {content}
               {type === "type1" ? (
-                <Image
-                  src={arrowBlackImage}
-                  alt={"Стрілка"}
+                <PublicImage
+                  src="/arrow_black.png"
+                  alt="Стрілка"
                   className="absolute -bottom-10 right-10 md:right-50 transform -translate-x-1/2 "
                   width={30}
                   height={30}
                 />
               ) : (
-                <Image
-                  src={arrowImage}
-                  alt={"Стрілка"}
+                <PublicImage
+                  src="/arrow.png"
+                  alt="Стрілка"
                   className="absolute -bottom-30 right-10 md:right-70 transform -translate-x-1/2 hidden md:block"
                   width={30}
                   height={30}

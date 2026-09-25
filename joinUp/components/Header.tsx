@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import logoImg from "@/public/logo.jpg";
+import PublicImage from "@/components/PublicImage";
 
 const nav = [
   { href: "/#pronas", label: "Про нас" },
@@ -49,15 +48,14 @@ export default function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:h-20">
         <Link href="/" className="shrink-0" aria-label="JoinUP — головна">
-          <Image
-            src={logoImg}
+          <PublicImage
+            src="/logo.jpg"
             alt="Join UP"
             width={160}
             height={48}
             className={`h-10 w-auto rounded-lg transition md:h-12 ${
               solid ? "" : "ring-2 ring-white/70"
             }`}
-            priority
           />
         </Link>
 

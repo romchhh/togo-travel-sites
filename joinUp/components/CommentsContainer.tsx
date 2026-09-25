@@ -1,9 +1,4 @@
 "use client";
-import commentImg1 from "@/public/comments/rev-img-1.jpg";
-import commentImg2 from "@/public/comments/rev-img-2.jpg";
-import commentImg3 from "@/public/comments/rev-img-3.jpg";
-import commentImg4 from "@/public/comments/rev-img-4.jpg";
-import commentImg5 from "@/public/comments/rev-img-5.jpg";
 import CommentItem from "./CommentItem";
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -16,35 +11,35 @@ export default function CommentsContainer() {
     {
       id: 1,
       name: "Зуєва Анастасія",
-      image: commentImg1,
+      image: "/comments/rev-img-1.jpg",
       comment:
         "Літали з чоловіком в ОАЕ, а потім у Катар із туристичним агентством JoinUp – це було чудово! Серйозно, якість сервісу відчувалася на кожному етапі, починаючи від заявки на сайті й закінчуючи заселенням у готель!",
     },
     {
       id: 2,
       name: "Нестерова Ірина",
-      image: commentImg2,
+      image: "/comments/rev-img-2.jpg",
       comment:
         "Навесні літали з сім’єю до Туреччини, вирішили спробувати тур із JoinUp, тим більше, що їх порадив мій колега з роботи. За ціною вийшло чудово, сервіс, приїзд і заселення – усе без проблем. Задоволена нашим вибором! Дякую вам)",
     },
     {
       id: 3,
       name: "Тетерєв Ігор",
-      image: commentImg3,
+      image: "/comments/rev-img-3.jpg",
       comment:
         "Був в Італії від туристичного агентства JoinUp, готель підібрали нам чудовий, по прильоту зустріли в аеропорту й заселили. Якщо чесно, спочатку трохи бентежили ціни, бо вони трохи нижчі за середні, і я хвилювався, що можуть бути проблеми з сервісом, але ні. Відпочинок вийшов чудовим.",
     },
     {
       id: 4,
       name: "Панченко Денис",
-      image: commentImg4,
+      image: "/comments/rev-img-4.jpg",
       comment:
         "Вже не раз подорожував світом із туристичним агентством JoinUp, востаннє літав до Індії, щоб побачити Тадж-Махал. Усе, як завжди, на найвищому рівні. Якщо хочете відпочинок без зайвих клопотів і за адекватною вартістю, рекомендую їх.",
     },
     {
       id: 5,
       name: "Ломаков Артур",
-      image: commentImg5,
+      image: "/comments/rev-img-5.jpg",
       comment:
         "Літав із ними до Болгарії, вирішив обрати туристичне агентство JoinUp, бо на той момент це було найбюджетніше, а мені хотілося просто побувати в новому місці й відпочити без напруги. Не підвели, допомогли мені чудово відпочити й розслабитися, не думаючи про те, який готель забронювати і як туди дістатися.",
     },

@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import leftImage from "@/public/where_left.jpg";
-import rightImage from "@/public/where_right.jpg";
-import metroImg from "@/public/metro.svg";
+import PublicImage from "@/components/PublicImage";
 
 export default function WhereToFind() {
   return (
@@ -12,17 +9,15 @@ export default function WhereToFind() {
         className="flex flex-col overflow-hidden bg-white md:h-[650px] md:flex-row md:rounded-[2rem]"
         id="destinations"
       >
-        {/* Ліве зображення */}
         <div className="relative h-[350px] md:h-auto md:flex-1">
-          <Image
-            src={leftImage}
+          <PublicImage
+            src="/where_left.jpg"
             alt="JoinUp Tour Office Left"
             fill
             className="object-cover"
           />
         </div>
 
-        {/* Центральна частина */}
         <div className="flex items-center justify-center bg-brand px-6 py-10 text-white md:flex-1 md:py-8">
           <div className="max-w-lg space-y-3 text-center text-xs md:text-sm">
             <h2 className="font-display text-2xl font-bold md:text-3xl">
@@ -33,7 +28,7 @@ export default function WhereToFind() {
               <div>
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Мінська
                 </p>
                 <p className="text-xs md:text-sm">
@@ -45,7 +40,7 @@ export default function WhereToFind() {
               <div>
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Шулявська
                 </p>
                 <p className="text-xs md:text-sm">
@@ -58,7 +53,7 @@ export default function WhereToFind() {
               <div>
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Площа Українських Героїв
                 </p>
                 <p className="text-xs md:text-sm">
@@ -71,7 +66,7 @@ export default function WhereToFind() {
               <div>
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Позняки
                 </p>
                 <p className="text-xs md:text-sm">
@@ -84,7 +79,7 @@ export default function WhereToFind() {
               <div>
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Осокорки
                 </p>
                 <p className="text-xs md:text-sm">
@@ -97,7 +92,7 @@ export default function WhereToFind() {
               <div>
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Почайна
                 </p>
                 <p className="text-xs md:text-sm">
@@ -110,7 +105,7 @@ export default function WhereToFind() {
               <div className="md:col-span-2">
                 <p className="font-semibold">м. Київ</p>
                 <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <Image src={metroImg} alt="Metro" width={16} height={16} />
+                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
                   Почайна
                 </p>
                 <p className="text-xs md:text-sm">
@@ -123,10 +118,9 @@ export default function WhereToFind() {
           </div>
         </div>
 
-        {/* Праве зображення */}
         <div className="md:flex-1 relative h-[350px] md:h-auto">
-          <Image
-            src={rightImage}
+          <PublicImage
+            src="/where_right.jpg"
             alt="JoinUp Tour Office Right"
             fill
             className="object-cover"
