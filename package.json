@@ -1,17 +1,20 @@
 {
   "name": "togotravel",
   "private": true,
+  "workspaces": [
+    "join",
+    "joinUp",
+    "trip-vibe"
+  ],
   "scripts": {
-    "dev:join": "npm run dev --prefix join",
-    "dev:joinUp": "npm run dev --prefix joinUp",
-    "dev:trip-vibe": "npm run dev --prefix trip-vibe",
-    "build": "npm run build:join && npm run build:joinUp && npm run build:trip-vibe",
-    "build:join": "npm run build --prefix join",
-    "build:joinUp": "npm run build --prefix joinUp",
-    "build:trip-vibe": "npm run build --prefix trip-vibe",
-    "audit": "npm run audit:join; npm run audit:joinUp; npm run audit:trip-vibe",
-    "audit:join": "npm audit --prefix join",
-    "audit:joinUp": "npm audit --prefix joinUp",
-    "audit:trip-vibe": "npm audit --prefix trip-vibe"
+    "dev:join": "npm run dev -w join",
+    "dev:joinUp": "npm run dev -w join-up",
+    "dev:trip-vibe": "npm run dev -w trip-vibe",
+    "build": "npm run build -w join && npm run build -w join-up && npm run build -w trip-vibe",
+    "build:join": "npm run build -w join",
+    "build:joinUp": "npm run build -w join-up",
+    "build:trip-vibe": "npm run build -w trip-vibe",
+    "lint": "npm run lint -w join && npm run lint -w join-up && npm run lint -w trip-vibe",
+    "audit": "npm audit --workspaces --include-workspace-root"
   }
 }

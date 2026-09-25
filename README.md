@@ -6,7 +6,7 @@
 | `joinUp/` | joinup.market | 3006 | Саламатін К.О. |
 | `trip-vibe/` | tripvibe.com.ua | 3007 | Гайдабука Н.В. |
 
-Кожен сайт — окремий Next.js-проєкт зі своїм `package.json`.
+Monorepo на **npm workspaces**: один `node_modules` у корені, кожен сайт — workspace зі своїм `package.json`.
 
 ## Спільні файли
 
@@ -24,21 +24,26 @@ chmod +x scripts/sync-public-assets.sh
 ./scripts/sync-public-assets.sh
 ```
 
+## Встановлення (один раз)
+
+```bash
+cd togotravel   # корінь репозиторію
+npm install     # спільний node_modules у корені
+```
+
 ## Запуск
 
 ```bash
-cd join && npm run dev       # http://localhost:3005
-cd joinUp && npm run dev     # http://localhost:3006
-cd trip-vibe && npm run dev  # http://localhost:3007
+npm run dev:join        # http://localhost:3005
+npm run dev:joinUp      # http://localhost:3006
+npm run dev:trip-vibe   # http://localhost:3007
 ```
 
-`npm run start` у кожному проєкті використовує той самий порт.
+Або з папки сайту: `npm run dev` (після `npm install` у корені).
 
-## Білд і audit (усі сайти з кореня)
+## Білд і audit
 
 ```bash
-npm run build    # join → joinUp → trip-vibe
-npm run audit    # npm audit у кожному проєкті
+npm run build
+npm run audit
 ```
-
-Перед першим білдом у кожній папці: `npm install` (join, joinUp, trip-vibe).
