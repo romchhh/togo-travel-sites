@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #ff7112;
+  --color-brand-dark: #e55f0a;
+  --color-ink: #131313;
+  --color-muted: #667085;
+  --color-line: #eaecf0;
+  --color-surface: #f7f8fa;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2rem;
+  --shadow-soft: 0 10px 40px -18px rgb(19 19 19 / 0.28);
+  --shadow-lift: 0 22px 50px -24px rgb(19 19 19 / 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brand) 28%, white);
+}
+
+input,
+select,
+textarea {
+  border-radius: var(--radius-md);
+}
+
+.ui-card {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+.ui-btn {
+  border-radius: 999px;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ui-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -12px rgb(255 113 18 / 0.7);
+}
+
+.prose-legal h2 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.prose-legal ul,
+.prose-legal ol {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.prose-legal ul {
+  list-style: disc;
+}
+
+.prose-legal ol {
+  list-style: decimal;
+}
+
+.prose-legal a:not(.ui-cta) {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ui-cta {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.ui-cta:hover {
+  color: #fff !important;
+}
+
+.prose-legal strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}

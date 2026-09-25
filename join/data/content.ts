@@ -1,0 +1,21 @@
+export const siteFop = {
+  name: "ФОП Саламатіна Світлана Євгенівна",
+  fullName: "Саламатіна Світлана Євгенівна",
+  taxId: "2712012861",
+  taxIdLabel: "РНОКПП (ІПН)",
+  address: "02140, м. Київ, вул. Мішуги, буд. 12, кв. 141",
+  iban: "UA163052990000026002046802542",
+  bank: "АТ «ПриватБанк»",
+  phone: "+380508138800",
+  email: "togotravel.inform@gmail.com",
+  taxSystem: "Спрощена система оподаткування, 3 група",
+  guarantee: {
+    number: "57733",
+    issuer: "АТ «КБ «ГЛОБУС»",
+    amountUah: "103 238,20 грн",
+    amountEur: "2 000,00 EUR",
+    issuedAt: "13.08.2026",
+    validUntil: "12.08.2031",
+    file: "/bank-guarantee.pdf",
+  },
+} as const;
