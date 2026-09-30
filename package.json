@@ -21,6 +21,9 @@
     "build:joinUp": "npm run build -w join-up",
     "build:trip-vibe": "npm run build -w trip-vibe",
     "lint": "npm run lint -w join && npm run lint -w join-up && npm run lint -w trip-vibe",
-    "audit": "npm audit --workspaces --include-workspace-root"
+    "audit": "npm audit --workspaces --include-workspace-root",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart ecosystem.config.cjs"
   }
 }

@@ -60,3 +60,39 @@ npm run audit    # очікується 0 vulnerabilities (postcss підтяг�
 ```
 
 **Не запускайте** `npm audit fix --force` на сервері — він може відкотити Next.js до старої версії. Достатньо `npm install` з репозиторію.
+
+## Production (PM2 на VPS)
+
+Перед першим запуском: `npm install` і `npm run build` у корені репозиторію.
+
+```bash
+sudo npm install -g pm2
+cd ~/togo-travel-sites
+pm2 start ecosystem.config.cjs
+pm2 status
+```
+
+| PM2 name     | Папка       | Порт |
+|--------------|-------------|------|
+| `join-kiev`  | `join/`     | 3005 |
+| `join-kyiv`  | `joinUp/`   | 3006 |
+| `tripvibe`   | `trip-vibe/`| 3007 |
+
+Автозапуск після reboot:
+
+```bash
+pm2 startup   # виконай команду з sudo, яку виведе pm2
+pm2 save
+```
+
+Перевірка:
+
+```bash
+curl -I http://127.0.0.1:3005
+curl -I http://127.0.0.1:3006
+curl -I http://127.0.0.1:3007
+```
+
+Корисні команди: `pm2 logs join-kyiv --lines 50`, `pm2 restart tripvibe`, `pm2 reload ecosystem.config.cjs`.
+
+Nginx проксує домени на ці порти (502 зазвичай означає, що процес не `online` або невірний `proxy_pass`).
