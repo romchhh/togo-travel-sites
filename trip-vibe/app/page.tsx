@@ -15,11 +15,11 @@ export default function Home() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+44");
+  const [phone, setPhone] = useState("+380");
   const [agreement, setAgreement] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const phonePrefix = "+44";
+  const phonePrefix = "+380";
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
@@ -30,8 +30,8 @@ export default function Home() {
     // Remove any non-digit characters from the rest
     const digitsOnly = input.slice(phonePrefix.length).replace(/\D/g, "");
 
-    // Limit to 9 digits
-    const limitedDigits = digitsOnly.slice(0, 10);
+    // Limit to 9 digits (UA mobile without country code)
+    const limitedDigits = digitsOnly.slice(0, 9);
 
     setPhone(phonePrefix + limitedDigits);
   };
@@ -229,10 +229,10 @@ export default function Home() {
                 </form>
 
                 <a
-                  href="tel:+447520665098"
+                  href="tel:+380444999722"
                   className="mt-4 block rounded-full py-2 text-center text-sm font-medium text-muted transition hover:bg-surface hover:text-terracotta"
                 >
-                  або зателефонуйте +44 7520 665098
+                  або зателефонуйте +38 (044) 499 97 22
                 </a>
               </>
             )}

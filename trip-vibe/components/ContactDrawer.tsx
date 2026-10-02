@@ -10,12 +10,12 @@ type ContactDrawerProps = {
 
 export default function ContactDrawer({ open, onClose }: ContactDrawerProps) {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+44");
+  const [phone, setPhone] = useState("+380");
   const [agreement, setAgreement] = useState(false);
   // const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
-  const phonePrefix = "+44";
+  const phonePrefix = "+380";
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
@@ -26,8 +26,8 @@ export default function ContactDrawer({ open, onClose }: ContactDrawerProps) {
     // Remove any non-digit characters from the rest
     const digitsOnly = input.slice(phonePrefix.length).replace(/\D/g, "");
 
-    // Limit to 9 digits
-    const limitedDigits = digitsOnly.slice(0, 10);
+    // Limit to 9 digits (UA mobile without country code)
+    const limitedDigits = digitsOnly.slice(0, 9);
 
     setPhone(phonePrefix + limitedDigits);
   };
@@ -161,7 +161,7 @@ export default function ContactDrawer({ open, onClose }: ContactDrawerProps) {
                     onKeyDown={handlePhoneKeyDown}
                     value={phone}
                     inputMode="numeric"
-                    pattern="\+447\d{9}" // Optional HTML pattern for 9 digits after +447
+                    pattern="\+380\d{9}"
                     required
                     className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
                   />

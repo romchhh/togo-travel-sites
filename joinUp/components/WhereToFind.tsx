@@ -2,6 +2,45 @@
 
 import PublicImage from "@/components/PublicImage";
 
+const offices = [
+  {
+    metro: "Осокорки",
+    address:
+      "ТЦ Рівер Молл, Дніпровська набережна 12, центральний вхід, -1 поверх, навпроти Сільпо, Join Up",
+    phone: "+38 (044) 393 33 23",
+    phoneHref: "tel:+380443933323",
+    mobile: "+380 99 697 48 91",
+    mobileHref: "tel:+380996974891",
+  },
+  {
+    metro: "Площа Українських Героїв",
+    address:
+      "ТЦ Метроград, з метро ліворуч, вхід через магазин Єва, Join Up",
+    phone: "+38 (044) 393 33 23",
+    phoneHref: "tel:+380443933323",
+    mobile: "+380 93 265 33 26",
+    mobileHref: "tel:+380932653326",
+  },
+  {
+    metro: "Почайна",
+    address:
+      "ТЦ Городок, пр-т Степана Бандери 23, 1 поверх, біля кульок, Join Up",
+    phone: "+38 (044) 393 33 23",
+    phoneHref: "tel:+380443933323",
+    mobile: "+380 50 861 47 32",
+    mobileHref: "tel:+380508614732",
+  },
+  {
+    metro: "Почайна",
+    address:
+      "ТЦ Ашан Почайна, пр-т Степана Бандери 15 А, Оболонські ворота, прикасова зона, Join Up",
+    phone: "+38 (044) 393 33 23",
+    phoneHref: "tel:+380443933323",
+    mobile: "+380 63 336 54 45",
+    mobileHref: "tel:+380633365445",
+  },
+] as const;
+
 export default function WhereToFind() {
   return (
     <section className="flex flex-col overflow-hidden md:rounded-[2rem] md:mx-5 md:mb-10">
@@ -24,96 +63,25 @@ export default function WhereToFind() {
               Де нас можна знайти
             </h2>
 
-            <div className="flex flex-wrap items-center justify-center  md:grid md:grid-cols-2 gap-4">
-              <div>
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Мінська
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Смарт Плаза, 1 поверх, біля повітряних кульок, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
-
-              <div>
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Шулявська
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Мармелад, 1 поверх, вхід зі сторони Індустріального моста,
-                  вул. Борщагівська 154, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
-
-              <div>
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Площа Українських Героїв
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Метроград, вул. Велика Васильківська 23, з метро ліворуч,
-                  вхід через магазин Єва, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
-
-              <div>
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Позняки
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Піраміда, 1 поверх, біля входу зі сторони пр-ту Бажана,
-                  вул. Мішуги 4, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
-
-              <div>
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Осокорки
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Аркадія, Дніпровська набережна 33, 1-й поверх, праве крило,
-                  біля золота, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
-
-              <div>
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Почайна
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Gorodok Gallery, пр-т Степана Бандери 23, 1-й поверх, біля
-                  надувних кульок, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
-
-              <div className="md:col-span-2">
-                <p className="font-semibold">м. Київ</p>
-                <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
-                  <PublicImage src="/metro.svg" alt="Metro" width={16} height={16} />
-                  Почайна
-                </p>
-                <p className="text-xs md:text-sm">
-                  ТЦ Ашан, пр-т Степана Бандери 15 А, Оболонські ворота, бутиків
-                  зона, Join Up
-                </p>
-                <a href="tel:+380443933323">+38 (044) 393 33 23</a>
-              </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {offices.map((office) => (
+                <div key={office.address}>
+                  <p className="font-semibold">м. Київ</p>
+                  <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
+                    <PublicImage
+                      src="/metro.svg"
+                      alt="Metro"
+                      width={16}
+                      height={16}
+                    />
+                    {office.metro}
+                  </p>
+                  <p className="text-xs md:text-sm">{office.address}</p>
+                  <a href={office.phoneHref}>{office.phone}</a>
+                  <br />
+                  <a href={office.mobileHref}>{office.mobile}</a>
+                </div>
+              ))}
             </div>
           </div>
         </div>

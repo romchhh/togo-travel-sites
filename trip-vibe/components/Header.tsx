@@ -67,10 +67,10 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:+447520665098"
+            href="tel:+380444999722"
             className="hidden rounded-full px-3 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10 sm:block"
           >
-            +44 7520 665098
+            +38 (044) 499 97 22
           </a>
           <Link
             href="/#form"
@@ -127,10 +127,10 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href="tel:+447520665098"
+            href="tel:+380444999722"
             className="mt-6 inline-flex w-fit rounded-full bg-white px-5 py-3 text-base font-medium text-header"
           >
-            +44 7520 665098
+            +38 (044) 499 97 22
           </a>
         </div>
       </div>

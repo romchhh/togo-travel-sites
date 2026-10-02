@@ -48,7 +48,7 @@ export const legalSites: Record<
       iban: "UA083052990000026005036810808",
       bank: "АТ КБ «ПРИВАТБАНК»",
       email: "togotravel.inform@gmail.com",
-      phones: ["+447520665098"],
+      phones: ["+380444999722"],
       bankDetails:
         "МФО 305299, ЄДРПОУ 14360570, відділення: 01042, м. Київ, бульв. Миколи Міхновського, 25",
     },

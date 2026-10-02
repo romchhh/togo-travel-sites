@@ -24,10 +24,10 @@ export default function Footer() {
               Ваша подорож — наша турбота. Ми на звʼязку 24/7.
             </p>
             <a
-              href="tel:+447520665098"
+              href="tel:+380444999722"
               className="mt-3 inline-block text-sm font-medium text-white hover:text-terracotta"
             >
-              +44 7520 665098
+              +38 (044) 499 97 22
             </a>
           </div>
 

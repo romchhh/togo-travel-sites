@@ -12,7 +12,7 @@ export const siteFop = {
   bankEdrpou: "14360570",
   bankBranchAddress: "01042, м. Київ, бульв. Миколи Міхновського, 25",
   email: "togotravel.inform@gmail.com",
-  phones: ["+447520665098"],
+  phones: ["+380444999722"],
   guarantee: {
     number: "57730",
     issuer: "АТ «КБ «ГЛОБУС»",
