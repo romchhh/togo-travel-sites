@@ -2458,28 +2458,45 @@ html {
   
   .room-feature-grid {
     grid-column-gap: 0px;
+    grid-row-gap: 0px;
     border-top: 1px solid #0000001a;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
   }
   
   .feature {
     color: #000;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 16px 12px;
     font-size: 17px;
     font-weight: 700;
     display: flex;
+    min-width: 0;
+  }
+
+  .feature-price {
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 8px;
+    border-top: 1px solid #0000001a;
+    padding: 14px 16px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .feature-price > div {
+    white-space: nowrap;
   }
   
   .feature.centre-lines {
     border-left: 1px solid #0000001a;
-    border-right: 1px solid #0000001a;
   }
   
   .feature-icon {
     margin-right: 6px;
+    flex-shrink: 0;
   }
   
   .content-grid {
@@ -3650,6 +3667,10 @@ html {
     margin-bottom: 24px;
     display: flex;
   }
+
+  .waves-wrap-price-2 .waves-price-text-pricing-2 {
+    white-space: nowrap;
+  }
   
   .waves-divider-pricing-2 {
     background-color: #14171b1a;
@@ -4603,7 +4624,8 @@ html {
     }
   
     .feature.centre-lines {
-      border: 1px #000;
+      border-left: 1px solid #0000001a;
+      border-right: none;
     }
   
     .content-grid-reverse {
@@ -5189,6 +5211,22 @@ html {
   font-size: 18px !important;
   font-weight: 700;
   color: #ff7112 !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.tour-offer-card__price > span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #98a2b3;
+}
+
+.tour-offer-card__price-value {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #ff7112;
 }
 
 .tour-offer-card__cta {
@@ -5398,4 +5436,5 @@ html {
 .service-card__price {
   color: #ff7112;
   font-weight: 700;
+  white-space: nowrap;
 }

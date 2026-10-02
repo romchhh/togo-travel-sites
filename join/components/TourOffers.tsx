@@ -33,7 +33,10 @@ export default function TourOffers() {
                       </li>
                     )}
                     <li className="tour-offer-card__price">
-                      <span>Вартість:</span> {offer.price}
+                      <span>Вартість:</span>{" "}
+                      <strong className="tour-offer-card__price-value">
+                        {offer.price}
+                      </strong>
                     </li>
                   </ul>
                   <Link href="/#form" className="tour-offer-card__cta">

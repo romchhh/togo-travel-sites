@@ -45,7 +45,9 @@ export default function FooterRequisites() {
       </dl>
       <p className="mt-4 max-w-2xl text-xs leading-relaxed text-muted">
         Банківська гарантія № {siteFop.guarantee.number} ({siteFop.guarantee.issuer}
-        ), {siteFop.guarantee.amountEur}, дійсна до {siteFop.guarantee.validUntil}.{" "}
+        ),{" "}
+        <span className="whitespace-nowrap">{siteFop.guarantee.amountEur}</span>,
+        дійсна до {siteFop.guarantee.validUntil}.{" "}
         <Link href="/guarantee" className="text-ink hover:text-brand">
           Деталі
         </Link>

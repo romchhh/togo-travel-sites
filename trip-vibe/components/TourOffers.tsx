@@ -44,7 +44,7 @@ export default function TourOffers() {
                     )}
                     <div className="flex flex-wrap items-baseline justify-between gap-2 border-t border-line pt-3">
                       <dt className="text-muted">Вартість</dt>
-                      <dd className="text-lg font-bold text-terracotta">
+                      <dd className="whitespace-nowrap text-lg font-bold text-terracotta">
                         {offer.price}
                       </dd>
                     </div>

@@ -25,8 +25,8 @@ export const fopSalamatinKyrylo = {
   guarantee: {
     number: "57741",
     issuer: "АТ «КБ «ГЛОБУС»",
-    amountUah: "103 108,60 грн",
-    amountEur: "2 000,00 EUR",
+    amountUah: "103 108,60 грн",
+    amountEur: "2 000,00 EUR",
     issuedAt: "14.08.2026",
     validUntil: "13.08.2031",
     file: "/bank-guarantee.pdf",

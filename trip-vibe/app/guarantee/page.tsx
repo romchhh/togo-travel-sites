@@ -24,7 +24,9 @@ export default function GuaranteePage() {
           <li>Номер гарантії: № {g.number}</li>
           <li>Банк-гарант: {g.issuer}</li>
           <li>
-            Сума: {g.amountUah} ({g.amountEur})
+            Сума:{" "}
+            <span className="whitespace-nowrap">{g.amountUah}</span> (
+            <span className="whitespace-nowrap">{g.amountEur}</span>)
           </li>
           <li>Дата видачі: {g.issuedAt}</li>
           <li>Дійсна до: {g.validUntil}</li>

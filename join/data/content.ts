@@ -12,8 +12,8 @@ export const siteFop = {
   guarantee: {
     number: "57733",
     issuer: "АТ «КБ «ГЛОБУС»",
-    amountUah: "103 238,20 грн",
-    amountEur: "2 000,00 EUR",
+    amountUah: "103 238,20 грн",
+    amountEur: "2 000,00 EUR",
     issuedAt: "13.08.2026",
     validUntil: "12.08.2031",
     file: "/bank-guarantee.pdf",
