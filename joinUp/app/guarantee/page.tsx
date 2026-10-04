@@ -3,7 +3,7 @@ import { siteFop } from "@/data/siteFop";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Банківська гарантія — JoinUP",
+  title: "Банківська гарантія",
   description:
     "Банківська гарантія Globus Bank для фінансового забезпечення туристичної діяльності.",
 };

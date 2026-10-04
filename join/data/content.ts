@@ -6,7 +6,7 @@ export const siteFop = {
   address: "02140, м. Київ, вул. Мішуги, буд. 12, кв. 141",
   iban: "UA163052990000026002046802542",
   bank: "АТ «ПриватБанк»",
-  phone: "+380508138800",
+  phone: "+380443933323",
   email: "togotravel.inform@gmail.com",
   taxSystem: "Спрощена система оподаткування, 3 група",
   guarantee: {

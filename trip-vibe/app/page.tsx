@@ -152,7 +152,7 @@ export default function Home() {
               TripVibe
             </span>
             <h1 className="font-display text-4xl font-bold leading-[1.08] md:text-6xl">
-              Сучасне британське туристичне агентство
+              Сучасне українське туристичне агентство
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 md:text-lg">
               Ваша подорож — наша турбота: від порога вашого дому до пляжу готелю.

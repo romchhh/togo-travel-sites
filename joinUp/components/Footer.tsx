@@ -31,16 +31,6 @@ export default function Footer() {
                 {siteFop.email}
               </a>
             </p>
-            <p className="mt-1 text-sm text-muted">
-              {siteFop.phones.map((phone, i) => (
-                <span key={phone}>
-                  {i > 0 && " · "}
-                  <a href={`tel:${phone}`} className="hover:text-brand">
-                    {phone}
-                  </a>
-                </span>
-              ))}
-            </p>
           </div>
 
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">

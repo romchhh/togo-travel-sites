@@ -1,8 +1,13 @@
 import fs from "fs";
 import path from "path";
+import type { Metadata } from "next";
 import HomeTourOffersSection from "@/components/HomeTourOffersSection";
 import WebflowFragment from "@/components/WebflowFragment";
 import WebflowHome from "@/components/WebflowHome";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const FOOTER_START = '<section id="contact" class="footer">';
 

@@ -6,8 +6,8 @@ export const fopSalamatinaSvitlana = {
   address: "02140, м. Київ, вул. Мішуги, буд. 12, кв. 141",
   iban: "UA163052990000026002046802542",
   bank: "АТ «ПриватБанк»",
-  phone: "+380508138800",
-  phoneHref: "tel:+380508138800",
+  phone: "+380443933323",
+  phoneHref: "tel:+380443933323",
   email: "togotravel.inform@gmail.com",
   taxSystem: "Спрощена система оподаткування, 3 група",
 } as const;
@@ -20,7 +20,7 @@ export const fopSalamatinKyrylo = {
   address: "02140, м. Київ, вул. Мішуги, буд. 12, кв. 98",
   iban: "UA953052990000026005046211646",
   bank: "АТ «ПриватБанк»",
-  phones: ["+380508138800", "+380662340015"],
+  phones: ["+380443933323"],
   email: "togotravel.inform@gmail.com",
   guarantee: {
     number: "57741",

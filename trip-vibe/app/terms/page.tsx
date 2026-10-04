@@ -4,7 +4,7 @@ import { legalSites } from "@togotravel/shared/legal/sites";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Умови надання послуг — TripVibe",
+  title: "Умови надання послуг",
 };
 
 export default function TermsPage() {

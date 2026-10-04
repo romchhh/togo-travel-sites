@@ -11,7 +11,7 @@ export default function CallSection() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             className="ui-btn border border-white/30 bg-white px-7 py-3 text-sm font-semibold text-ink hover:bg-ink hover:text-white"
-            href="https://t.me/Trip_Vibe_Tour"
+            href="https://t.me/+SmTyR-SXMzk5NThi"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -19,11 +19,9 @@ export default function CallSection() {
           </a>
           <a
             className="ui-btn border border-white/40 px-7 py-3 text-sm font-semibold text-white hover:bg-white hover:text-ink"
-            href="https://wa.me/380997962663"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="tel:+380443933323"
           >
-            WhatsApp
+            +38 (044) 393 33 23
           </a>
         </div>
       </div>

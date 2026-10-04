@@ -7,39 +7,26 @@ const offices = [
     metro: "Осокорки",
     address:
       "ТЦ Рівер Молл, Дніпровська набережна 12, центральний вхід, -1 поверх, навпроти Сільпо, Join Up",
-    phone: "+38 (044) 393 33 23",
-    phoneHref: "tel:+380443933323",
-    mobile: "+380 99 697 48 91",
-    mobileHref: "tel:+380996974891",
   },
   {
     metro: "Площа Українських Героїв",
     address:
       "ТЦ Метроград, з метро ліворуч, вхід через магазин Єва, Join Up",
-    phone: "+38 (044) 393 33 23",
-    phoneHref: "tel:+380443933323",
-    mobile: "+380 93 265 33 26",
-    mobileHref: "tel:+380932653326",
   },
   {
     metro: "Почайна",
     address:
       "ТЦ Городок, пр-т Степана Бандери 23, 1 поверх, біля кульок, Join Up",
-    phone: "+38 (044) 393 33 23",
-    phoneHref: "tel:+380443933323",
-    mobile: "+380 50 861 47 32",
-    mobileHref: "tel:+380508614732",
   },
   {
     metro: "Почайна",
     address:
       "ТЦ Ашан Почайна, пр-т Степана Бандери 15 А, Оболонські ворота, прикасова зона, Join Up",
-    phone: "+38 (044) 393 33 23",
-    phoneHref: "tel:+380443933323",
-    mobile: "+380 63 336 54 45",
-    mobileHref: "tel:+380633365445",
   },
 ] as const;
+
+const CORP_PHONE = "+38 (044) 393 33 23";
+const CORP_PHONE_HREF = "tel:+380443933323";
 
 export default function WhereToFind() {
   return (
@@ -77,9 +64,7 @@ export default function WhereToFind() {
                     {office.metro}
                   </p>
                   <p className="text-xs md:text-sm">{office.address}</p>
-                  <a href={office.phoneHref}>{office.phone}</a>
-                  <br />
-                  <a href={office.mobileHref}>{office.mobile}</a>
+                  <a href={CORP_PHONE_HREF}>{CORP_PHONE}</a>
                 </div>
               ))}
             </div>

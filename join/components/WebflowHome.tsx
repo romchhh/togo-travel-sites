@@ -36,6 +36,101 @@ function reinjectScripts(root: HTMLElement) {
   }
 }
 
+function showFormState(
+  form: HTMLFormElement,
+  successEl: HTMLElement | null,
+  errorEl: HTMLElement | null,
+  state: "success" | "error"
+) {
+  if (state === "success") {
+    form.style.display = "none";
+    if (successEl) successEl.style.display = "block";
+    if (errorEl) errorEl.style.display = "none";
+  } else {
+    form.style.display = "";
+    if (successEl) successEl.style.display = "none";
+    if (errorEl) errorEl.style.display = "block";
+  }
+
+  const anchor =
+    successEl?.offsetParent != null
+      ? successEl
+      : errorEl?.offsetParent != null
+        ? errorEl
+        : form;
+  anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function bindHeroForm(root: HTMLElement) {
+  const form = root.querySelector<HTMLFormElement>("#form");
+  if (!form) return;
+
+  const successEl = root.querySelector<HTMLElement>(".success-message");
+  const errorEl = root.querySelector<HTMLElement>(".error-message");
+  const submitBtn = form.querySelector<HTMLInputElement>(
+    'input[type="submit"]'
+  );
+  const waitText = submitBtn?.getAttribute("data-wait") || "Надсилаємо...";
+  const idleText = submitBtn?.value || "Підібрати тур";
+
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("success")) {
+    showFormState(form, successEl, errorEl, "success");
+  } else if (urlParams.has("error")) {
+    showFormState(form, successEl, errorEl, "error");
+  }
+
+  if (urlParams.has("success") || urlParams.has("error")) {
+    const clean = new URL(window.location.href);
+    clean.searchParams.delete("success");
+    clean.searchParams.delete("error");
+    window.history.replaceState({}, "", `${clean.pathname}${clean.hash || "#form"}`);
+  }
+
+  form.addEventListener(
+    "submit",
+    async (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.value = waitText;
+      }
+      if (errorEl) errorEl.style.display = "none";
+
+      try {
+        const response = await fetch("/api/send", {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+          },
+        });
+        const result = (await response.json().catch(() => null)) as {
+          success?: boolean;
+        } | null;
+
+        if (response.ok && result?.success) {
+          showFormState(form, successEl, errorEl, "success");
+          form.reset();
+        } else {
+          showFormState(form, successEl, errorEl, "error");
+        }
+      } catch {
+        showFormState(form, successEl, errorEl, "error");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.value = idleText;
+        }
+      }
+    },
+    true
+  );
+}
+
 export default function WebflowHome({ html }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const booted = useRef(false);
@@ -47,16 +142,7 @@ export default function WebflowHome({ html }: Props) {
     const root = rootRef.current;
     root.innerHTML = html;
     reinjectScripts(root);
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const successEl = root.querySelector<HTMLElement>(".success-message");
-    const errorEl = root.querySelector<HTMLElement>(".error-message");
-    if (urlParams.has("success") && successEl) {
-      successEl.style.display = "block";
-    }
-    if (urlParams.has("error") && errorEl) {
-      errorEl.style.display = "block";
-    }
+    bindHeroForm(root);
 
     let cancelled = false;
 

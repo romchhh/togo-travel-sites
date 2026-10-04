@@ -36,14 +36,9 @@ export default function FooterRequisites() {
 
         <dt className="text-white/50">Телефон</dt>
         <dd className="text-white/90">
-          {siteFop.phones.map((phone, i) => (
-            <span key={phone}>
-              {i > 0 && ", "}
-              <a href={`tel:${phone}`} className="hover:text-white">
-                {phone}
-              </a>
-            </span>
-          ))}
+          <a href="tel:+380444999722" className="hover:text-white">
+            +38 (044) 499 97 22
+          </a>
         </dd>
       </dl>
       <p className="mt-4 max-w-2xl text-xs leading-relaxed text-white/45">

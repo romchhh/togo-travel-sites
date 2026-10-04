@@ -3,7 +3,7 @@ import OperatorContractsList from "@/components/OperatorContractsList";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Договори з туроператорами — JoinUP",
+  title: "Договори з туроператорами",
   description:
     "Договори та угоди з туроператорами туристичного агентства JoinUP.",
 };

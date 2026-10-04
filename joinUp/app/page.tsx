@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HomeTourOffersSection from "@/components/HomeTourOffersSection";
 import MainBanner from "@/components/MainBanner";
 import OnlyWithUsContainer from "@/components/OnlyWithUsContainer";
@@ -9,6 +10,10 @@ import TelegramPopup from "@/components/TelegramPopup";
 import CommentsContainer from "@/components/CommentsContainer";
 import CallSection from "@/components/CallSection";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -16,12 +21,11 @@ export default function Home() {
       <WhyJoinUp />
       <HomeTourOffersSection />
       <SliderContainer title="Гарячий тур" />
-      <OnlyWithUsContainer type="type1" />
       <SliderContainer title="Раннє бронювання" />
       <CommentsContainer />
       <CallSection />
       <WhereToFind />
-      <OnlyWithUsContainer type="type2" />
+      <OnlyWithUsContainer />
       <RightSideButtons />
       <TelegramPopup />
     </div>

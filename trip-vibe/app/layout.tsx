@@ -4,6 +4,13 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { JsonLd } from "@togotravel/shared/seo/JsonLd";
+import {
+  buildSiteMetadata,
+  buildTravelAgencyJsonLd,
+  buildWebSiteJsonLd,
+  seoSites,
+} from "@togotravel/shared/seo/sites";
 
 const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
@@ -17,11 +24,9 @@ const evolventa = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "TripVibe — сучасне туристичне агентство | Підбір турів 24/7",
-  description:
-    "TripVibe — туристичне агентство з повним супроводом від дверей вашого дому до пляжу готелю. Ваша подорож — наша турбота. Ми на звʼязку 24/7!",
-};
+const site = seoSites.tripVibe;
+
+export const metadata: Metadata = buildSiteMetadata(site);
 
 export default function RootLayout({
   children,
@@ -33,6 +38,10 @@ export default function RootLayout({
       lang="uk"
       className={`${dmSans.variable} ${evolventa.variable} scroll-pt-20`}
     >
+      <head>
+        <JsonLd data={buildTravelAgencyJsonLd(site)} />
+        <JsonLd data={buildWebSiteJsonLd(site)} />
+      </head>
       <body className="font-sans antialiased">
         <Header />
         <main>{children}</main>

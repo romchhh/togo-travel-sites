@@ -4,7 +4,7 @@ import { legalSites } from "@togotravel/shared/legal/sites";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Публічна оферта — JoinUP",
+  title: "Публічна оферта",
   description:
     "Публічна оферта туристичного агентства JoinUP на надання туристичних та посередницьких послуг.",
 };

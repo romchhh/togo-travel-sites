@@ -9,39 +9,27 @@ const offices = [
     metro: "м. Позняки",
     details:
       "Михайла Гришка 3А, вхід В, -1 поверх навпроти ескалатора, поруч з спорт клубом Apollo, Trip Vibe",
-    phones: [
-      { label: "+38 (044) 499 97 22", href: "tel:+380444999722" },
-      { label: "+380 99 796 26 63", href: "tel:+380997962663" },
-    ],
+    phone: { label: "+38 (044) 499 97 22", href: "tel:+380444999722" },
   },
   {
     title: "ТЦ Дрім Таун",
     metro: "м. Мінська",
     details:
       "Оболонський проспект 1Б, Dream Yellow атріум Франція, вхід через Сільпо, 3 поверх, Anex Tour",
-    phones: [
-      { label: "+38 (044) 495 77 79", href: "tel:+380444957779" },
-      { label: "+380 50 549 11 80", href: "tel:+380505491180" },
-    ],
+    phone: { label: "+38 (044) 495 77 79", href: "tel:+380444957779" },
   },
   {
     title: "ТЦ Блокбастер",
     metro: "м. Почайна",
     details:
       "пр-т Степана Бандери 36, 1 поверх, прикасова зона Сільпо, Trip Vibe",
-    phones: [
-      { label: "+38 (044) 499 97 22", href: "tel:+380444999722" },
-      { label: "+380 99 158 73 53", href: "tel:+380991587353" },
-    ],
+    phone: { label: "+38 (044) 499 97 22", href: "tel:+380444999722" },
   },
   {
     title: "ТЦ New Way",
     metro: "м. Харківська",
     details: "-1 поверх, навпроти кас Сільпо, Trip Vibe",
-    phones: [
-      { label: "+38 (044) 499 97 22", href: "tel:+380444999722" },
-      { label: "+380 95 523 96 19", href: "tel:+380955239619" },
-    ],
+    phone: { label: "+38 (044) 499 97 22", href: "tel:+380444999722" },
   },
 ] as const;
 
@@ -112,17 +100,12 @@ export default function ContactPage() {
                   <p className="font-semibold text-gray-800">{office.title}</p>
                   <p className="text-sm text-gray-500">{office.metro}</p>
                   <p>{office.details}</p>
-                  <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1">
-                    {office.phones.map((p) => (
-                      <a
-                        key={p.href + p.label}
-                        href={p.href}
-                        className="text-red-500 hover:text-red-600 font-medium transition-colors"
-                      >
-                        {p.label}
-                      </a>
-                    ))}
-                  </div>
+                  <a
+                    href={office.phone.href}
+                    className="inline-block pt-1 text-red-500 hover:text-red-600 font-medium transition-colors"
+                  >
+                    {office.phone.label}
+                  </a>
                 </div>
               ))}
             </div>

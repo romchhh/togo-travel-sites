@@ -45,7 +45,7 @@ export default function TelegramPopup() {
             height={40}
           />
           <a
-            href="https://t.me/tripvibeua"
+            href="https://t.me/+SmTyR-SXMzk5NThi"
             target="_blank"
             rel="noopener noreferrer"
             className="ui-btn mt-5 flex w-full items-center justify-center bg-brand py-3 text-sm font-semibold text-white hover:bg-brand-dark"

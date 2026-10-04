@@ -16,7 +16,7 @@ export const legalSites: Record<
       iban: "UA163052990000026002046802542",
       bank: "АТ «ПриватБанк»",
       email: "togotravel.inform@gmail.com",
-      phones: ["+380508138800"],
+      phones: ["+380443933323"],
       taxSystem: "Спрощена система оподаткування, 3 група",
     },
   },
@@ -32,7 +32,7 @@ export const legalSites: Record<
       iban: "UA953052990000026005046211646",
       bank: "АТ «ПриватБанк»",
       email: "togotravel.inform@gmail.com",
-      phones: ["+380508138800", "+380662340015"],
+      phones: ["+380443933323"],
     },
   },
   tripVibe: {

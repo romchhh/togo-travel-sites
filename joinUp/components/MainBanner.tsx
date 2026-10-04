@@ -97,7 +97,7 @@ export default function MainBanner() {
               <h2 className="font-display text-xl font-bold md:text-2xl">
                 Підбір туру + трансфер
               </h2>
-              <p className="mt-1 text-sm text-muted">за 10 хвилин</p>
+              <p className="mt-1 text-sm text-muted">приблизно за 1 годину</p>
 
               <form onSubmit={handleSubmit} className="mt-6 space-y-3">
                 <div>

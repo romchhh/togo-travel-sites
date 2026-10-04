@@ -4,7 +4,7 @@ import { legalSites } from "@togotravel/shared/legal/sites";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Правила повернення — TripVibe",
+  title: "Правила повернення",
 };
 
 export default function RefundPage() {

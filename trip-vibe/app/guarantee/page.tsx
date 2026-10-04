@@ -3,7 +3,7 @@ import { siteFop } from "@/data/siteFop";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Банківська гарантія — TripVibe",
+  title: "Банківська гарантія",
   description:
     "Банківська гарантія АТ «КБ «ГЛОБУС» для фінансового забезпечення туристичної діяльності.",
 };

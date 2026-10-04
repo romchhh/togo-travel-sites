@@ -3,7 +3,7 @@ import { siteFop } from "@/data/content";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Банківська гарантія — JoinUP",
+  title: "Банківська гарантія",
 };
 
 export default function GuaranteePage() {

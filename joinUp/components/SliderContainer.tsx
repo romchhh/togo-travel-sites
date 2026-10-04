@@ -28,49 +28,29 @@ export default function SliderContainer({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Дані для слайдів з локалізацією
-  const slides = [
-    {
-      id: 1,
-      destination: "Танзанія",
-      image: "/countries/tanzania.jpg",
-    },
-    {
-      id: 2,
-      destination: "Єгипет",
-      image: "/countries/egipt.jpg",
-    },
-    {
-      id: 3,
-      destination: "Ізраїль",
-      image: "/countries/israel.jpg",
-    },
-    {
-      id: 4,
-      destination: "Болгарія",
-      image: "/countries/bulguria.jpg",
-    },
-    {
-      id: 5,
-      destination: "ОАЕ",
-      image: "/countries/oae.jpg",
-    },
-    {
-      id: 6,
-      destination: "Індія",
-      image: "/countries/india.jpg",
-    },
-    {
-      id: 7,
-      destination: "Таїланд",
-      image: "/countries/tailand.jpg",
-    },
-    {
-      id: 8,
-      destination: "Туреччина",
-      image: "/countries/turkey.jpg",
-    },
+  const hotTourSlides = [
+    { id: 1, destination: "Єгипет", image: "/countries/egipt.jpg" },
+    { id: 2, destination: "Туреччина", image: "/countries/turkey.jpg" },
+    { id: 3, destination: "Болгарія", image: "/countries/bulguria.jpg" },
+    { id: 4, destination: "Танзанія", image: "/countries/tanzania.jpg" },
+    { id: 5, destination: "ОАЕ", image: "/countries/oae.jpg" },
+    { id: 6, destination: "Таїланд", image: "/countries/tailand.jpg" },
+    { id: 7, destination: "Індія", image: "/countries/india.jpg" },
   ];
+
+  const earlyBookingSlides = [
+    { id: 1, destination: "Єгипет", image: "/countries/egipt.jpg" },
+    { id: 2, destination: "Туреччина", image: "/countries/turkey.jpg" },
+    { id: 3, destination: "Греція", image: "/countries/turkey.jpg" },
+    { id: 4, destination: "Іспанія", image: "/countries/oae.jpg" },
+    { id: 5, destination: "Болгарія", image: "/countries/bulguria.jpg" },
+    { id: 6, destination: "Кіпр", image: "/countries/egipt.jpg" },
+    { id: 7, destination: "Танзанія", image: "/countries/tanzania.jpg" },
+    { id: 8, destination: "ОАЕ", image: "/countries/oae.jpg" },
+  ];
+
+  const slides =
+    title === "Раннє бронювання" ? earlyBookingSlides : hotTourSlides;
 
   // Максимальні слайди для мобільної версії (показуємо по 2)
   const maxSlides = isMobile ? Math.ceil(slides.length / 2) : slides.length;
