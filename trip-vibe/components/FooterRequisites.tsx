@@ -13,7 +13,7 @@ export default function FooterRequisites() {
         <dd className="text-white/90">{siteFop.taxId}</dd>
 
         <dt className="text-white/50">Юридична адреса</dt>
-        <dd className="text-white/90">{siteFop.address}</dd>
+        <dd className="text-white/90">{siteFop.addressPublic}</dd>
 
         <dt className="text-white/50">IBAN</dt>
         <dd className="break-all font-medium text-white">{siteFop.iban}</dd>
