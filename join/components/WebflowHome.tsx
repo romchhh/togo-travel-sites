@@ -131,14 +131,14 @@ function bindHeroForm(root: HTMLElement) {
   );
 }
 
-/** Webflow tabs блокують default — форсуємо tel: на кліку по офісу */
+/** Форсуємо tel: навіть якщо Webflow перехоплює клік */
 function bindOfficeCallLinks(root: HTMLElement) {
   root.addEventListener(
     "click",
     (event) => {
       const target = event.target as HTMLElement | null;
       const link = target?.closest?.<HTMLAnchorElement>(
-        "a.uui-contact14_tabs-link[href^='tel:'], a.footer-link[href^='tel:']"
+        "a.office-call-link[href^='tel:'], a.uui-contact14_tabs-link[href^='tel:'], a.footer-link[href^='tel:'], a[href^='tel:']"
       );
       if (!link?.href?.startsWith("tel:")) return;
       event.preventDefault();

@@ -29,6 +29,20 @@ export default function Footer() {
             >
               +38 (044) 499 97 22
             </a>
+            <div className="mt-3 space-y-1.5 text-sm text-white/65">
+              <a href="tel:+380444999722" className="block hover:text-white">
+                ТЦ Аладдін, м. Позняки
+              </a>
+              <a href="tel:+380444957779" className="block hover:text-white">
+                ТЦ Дрім Таун, м. Мінська
+              </a>
+              <a href="tel:+380444999722" className="block hover:text-white">
+                ТЦ Блокбастер, м. Почайна
+              </a>
+              <a href="tel:+380444999722" className="block hover:text-white">
+                ТЦ New Way, м. Харківська
+              </a>
+            </div>
           </div>
 
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/70">

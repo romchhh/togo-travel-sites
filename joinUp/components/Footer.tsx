@@ -23,6 +23,20 @@ export default function Footer() {
             >
               +38 (044) 393 33 23
             </a>
+            <div className="mt-3 space-y-1.5 text-sm text-muted">
+              <a href="tel:+380443933323" className="block hover:text-brand">
+                ТЦ Рівер Молл, м. Осокорки
+              </a>
+              <a href="tel:+380443933323" className="block hover:text-brand">
+                ТЦ Метроград, пл. Українських Героїв
+              </a>
+              <a href="tel:+380443933323" className="block hover:text-brand">
+                ТЦ Городок, м. Почайна
+              </a>
+              <a href="tel:+380443933323" className="block hover:text-brand">
+                ТЦ Ашан Почайна, м. Почайна
+              </a>
+            </div>
             <p className="mt-2 text-sm text-muted">
               <a
                 href={`mailto:${siteFop.email}`}
