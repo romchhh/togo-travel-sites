@@ -93,20 +93,19 @@ export default function ContactPage() {
             </h2>
             <div className="space-y-6">
               {offices.map((office) => (
-                <div
+                <a
                   key={office.title}
-                  className="text-gray-600 space-y-1 text-base leading-relaxed"
+                  href={office.phone.href}
+                  className="block space-y-1 rounded-xl p-3 -mx-3 text-base leading-relaxed text-gray-600 transition-colors hover:bg-white hover:shadow-sm"
+                  aria-label={`Зателефонувати в ${office.title}: ${office.phone.label}`}
                 >
                   <p className="font-semibold text-gray-800">{office.title}</p>
                   <p className="text-sm text-gray-500">{office.metro}</p>
                   <p>{office.details}</p>
-                  <a
-                    href={office.phone.href}
-                    className="inline-block pt-1 text-red-500 hover:text-red-600 font-medium transition-colors"
-                  >
+                  <p className="pt-1 font-medium text-red-500">
                     {office.phone.label}
-                  </a>
-                </div>
+                  </p>
+                </a>
               ))}
             </div>
             <p className="mt-6 text-sm text-gray-500">

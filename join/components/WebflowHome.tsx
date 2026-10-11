@@ -131,6 +131,24 @@ function bindHeroForm(root: HTMLElement) {
   );
 }
 
+/** Webflow tabs блокують default — форсуємо tel: на кліку по офісу */
+function bindOfficeCallLinks(root: HTMLElement) {
+  root.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target as HTMLElement | null;
+      const link = target?.closest?.<HTMLAnchorElement>(
+        "a.uui-contact14_tabs-link[href^='tel:'], a.footer-link[href^='tel:']"
+      );
+      if (!link?.href?.startsWith("tel:")) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.href = link.href;
+    },
+    true
+  );
+}
+
 export default function WebflowHome({ html }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const booted = useRef(false);
@@ -143,6 +161,7 @@ export default function WebflowHome({ html }: Props) {
     root.innerHTML = html;
     reinjectScripts(root);
     bindHeroForm(root);
+    bindOfficeCallLinks(root);
 
     let cancelled = false;
 

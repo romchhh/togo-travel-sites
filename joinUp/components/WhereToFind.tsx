@@ -52,26 +52,33 @@ export default function WhereToFind() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {offices.map((office) => (
-                <div key={office.address}>
+                <a
+                  key={office.address}
+                  href={CORP_PHONE_HREF}
+                  className="block rounded-xl px-2 py-2 text-white transition hover:bg-white/10"
+                  aria-label={`Зателефонувати: ${office.address}`}
+                >
                   <p className="font-semibold">м. Київ</p>
                   <p className="flex items-center justify-center gap-2 text-xs md:text-sm">
                     <PublicImage
                       src="/metro.svg"
-                      alt="Metro"
+                      alt=""
                       width={16}
                       height={16}
                     />
                     {office.metro}
                   </p>
                   <p className="text-xs md:text-sm">{office.address}</p>
-                  <a href={CORP_PHONE_HREF}>{CORP_PHONE}</a>
-                </div>
+                  <p className="mt-1 font-semibold underline underline-offset-2">
+                    {CORP_PHONE}
+                  </p>
+                </a>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="md:flex-1 relative h-[350px] md:h-auto">
+        <div className="relative h-[350px] md:h-auto md:flex-1">
           <PublicImage
             src="/where_right.jpg"
             alt="JoinUp Tour Office Right"
