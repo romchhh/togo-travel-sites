@@ -1,19 +1,29 @@
 import Link from "next/link";
 import PublicImage from "@/components/PublicImage";
-import { PRICE_INCLUDES_NOTE } from "@togotravel/shared/data/priceIncludes";
+import {
+  PRICE_INCLUDES_ITEMS,
+  PRICE_INCLUDES_NOTE,
+} from "@togotravel/shared/data/priceIncludes";
 import { tourDestinations } from "@togotravel/shared/data/tourOffers";
 
 type TourOffersProps = {
   priceClassName?: string;
   ctaHref?: string;
+  showIncludesBanner?: boolean;
 };
 
 export default function TourOffers({
   priceClassName = "text-brand",
   ctaHref = "/#form",
+  showIncludesBanner = true,
 }: TourOffersProps) {
   return (
     <div className="space-y-10 pt-4">
+      {showIncludesBanner && (
+        <p className="rounded-xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
+          {PRICE_INCLUDES_NOTE}
+        </p>
+      )}
       {tourDestinations.map((destination) => (
         <section key={destination.country}>
           <h2 className="font-display text-xl font-bold text-ink md:text-2xl">
@@ -60,6 +70,16 @@ export default function TourOffers({
                       </dd>
                     </div>
                   </dl>
+                  <div className="mt-3 rounded-lg bg-surface px-3 py-2.5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-ink">
+                      Що входить у вартість
+                    </p>
+                    <ul className="mt-1.5 list-disc space-y-0.5 pl-4 text-xs leading-relaxed text-muted">
+                      {PRICE_INCLUDES_ITEMS.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                   <Link
                     href={ctaHref}
                     className="ui-btn ui-cta mt-4 inline-flex w-full items-center justify-center bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark sm:w-auto"
@@ -72,7 +92,6 @@ export default function TourOffers({
           </div>
         </section>
       ))}
-      <p className="text-xs leading-relaxed text-muted">{PRICE_INCLUDES_NOTE}</p>
     </div>
   );
 }

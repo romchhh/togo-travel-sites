@@ -1,11 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PRICE_INCLUDES_NOTE } from "@togotravel/shared/data/priceIncludes";
+import {
+  PRICE_INCLUDES_ITEMS,
+  PRICE_INCLUDES_NOTE,
+} from "@togotravel/shared/data/priceIncludes";
 import { tourDestinations } from "@togotravel/shared/data/tourOffers";
 
-export default function TourOffers() {
+type TourOffersProps = {
+  showIncludesBanner?: boolean;
+};
+
+export default function TourOffers({
+  showIncludesBanner = true,
+}: TourOffersProps) {
   return (
     <div className="tour-offers">
+      {showIncludesBanner && (
+        <p className="tour-offers__note tour-offers__note--top">
+          {PRICE_INCLUDES_NOTE}
+        </p>
+      )}
       {tourDestinations.map((destination) => (
         <section key={destination.country} className="tour-destination">
           <h2 className="tour-destination__title">{destination.country}</h2>
@@ -40,6 +54,16 @@ export default function TourOffers() {
                       </strong>
                     </li>
                   </ul>
+                  <div className="tour-offer-card__includes">
+                    <p className="tour-offer-card__includes-title">
+                      Що входить у вартість
+                    </p>
+                    <ul className="tour-offer-card__includes-list">
+                      {PRICE_INCLUDES_ITEMS.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                   <Link href="/#form" className="tour-offer-card__cta">
                     Забронювати
                   </Link>
@@ -49,7 +73,6 @@ export default function TourOffers() {
           </div>
         </section>
       ))}
-      <p className="tour-offers__note">{PRICE_INCLUDES_NOTE}</p>
     </div>
   );
 }

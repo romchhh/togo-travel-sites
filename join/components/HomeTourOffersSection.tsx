@@ -9,8 +9,9 @@ export default function HomeTourOffersSection() {
           <div>
             <h2 className="home-tour-offers__title">Послуги та тури</h2>
             <p className="home-tour-offers__lead">
-              Актуальні пропозиції на популярні напрямки. Ціни орієнтовні —
-              уточнюйте наявність у менеджера.
+              Актуальні пропозиції на популярні напрямки. Вартість орієнтовно
+              включає авіапереліт, проживання, харчування, медичне страхування
+              та трансфер аеропорт–готель–аеропорт (наземне обслуговування).
             </p>
           </div>
           <Link href="/services" className="home-tour-offers__all">

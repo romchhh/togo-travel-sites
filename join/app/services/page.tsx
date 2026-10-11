@@ -1,5 +1,9 @@
 import InfoLayout from "@/components/InfoLayout";
 import TourOffers from "@/components/TourOffers";
+import {
+  PRICE_INCLUDES_ITEMS,
+  PRICE_INCLUDES_NOTE,
+} from "@togotravel/shared/data/priceIncludes";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -33,14 +37,15 @@ export default function ServicesPage() {
         <li>Трансфер до аеропортів вильоту</li>
       </ul>
 
-      <p>
-        Вартість туру орієнтовно включає авіапереліт, проживання, харчування,
-        медичне страхування та трансфер аеропорт–готель–аеропорт (наземне
-        обслуговування). Точний склад послуг підтверджує менеджер при
-        бронюванні.
-      </p>
+      <h2>Що включає вартість туру</h2>
+      <p>{PRICE_INCLUDES_NOTE}</p>
+      <ul>
+        {PRICE_INCLUDES_ITEMS.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
 
-      <TourOffers />
+      <TourOffers showIncludesBanner={false} />
     </InfoLayout>
   );
 }
