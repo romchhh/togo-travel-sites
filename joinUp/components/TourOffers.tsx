@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PublicImage from "@/components/PublicImage";
+import { PRICE_INCLUDES_NOTE } from "@togotravel/shared/data/priceIncludes";
 import { tourDestinations } from "@togotravel/shared/data/tourOffers";
 
 type TourOffersProps = {
@@ -71,12 +72,7 @@ export default function TourOffers({
           </div>
         </section>
       ))}
-      <p className="text-xs leading-relaxed text-muted">
-        Вартість туру орієнтовно включає: авіапереліт, проживання, харчування
-        за програмою готелю та трансфери аеропорт–готель–аеропорт. Ціни
-        орієнтовні на момент публікації — актуальну вартість, наявність місць і
-        склад послуг уточнюйте у менеджера перед бронюванням.
-      </p>
+      <p className="text-xs leading-relaxed text-muted">{PRICE_INCLUDES_NOTE}</p>
     </div>
   );
 }

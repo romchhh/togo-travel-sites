@@ -1,35 +1,43 @@
 "use client";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/css"; // base styles
+import "@splidejs/splide/css";
 import PublicImage from "@/components/PublicImage";
+
+const slides = [
+  {
+    img: "/contries-photo/Egypt.jpg",
+    img_sm: "/contries-photo/Egypt.jpg",
+    alt: "Єгипет — All Inclusive з вильотом з Києва",
+    label: "Єгипет",
+  },
+  {
+    img: "/contries-photo/Turkey.jpg",
+    img_sm: "/contries-photo/Turkey.jpg",
+    alt: "Туреччина — море, сонце та готелі з харчуванням",
+    label: "Туреччина",
+  },
+  {
+    img: "/contries-photo/Thailand.webp",
+    img_sm: "/contries-photo/Thailand.webp",
+    alt: "В’єтнам і Шрі-Ланка — тропічний відпочинок",
+    label: "В’єтнам · Шрі-Ланка",
+  },
+  {
+    img: "/contries-photo/Greece.jpg",
+    img_sm: "/contries-photo/Greece.jpg",
+    alt: "Греція — острови та курорти Середземномор’я",
+    label: "Греція",
+  },
+];
 
 export default function HeroCarousel({
   onSlideClick,
 }: {
   onSlideClick?: () => void;
 }) {
-  // Redundant links
-  const slides = [
-    {
-      img: "/slider-pics/Desktop - 5.jpg",
-      img_sm: "/slider-pics/iPhone 16 - 1.jpg",
-      alt: "Океанський круїз",
-    },
-    {
-      img: "/slider-pics/Desktop - 6.png",
-      img_sm: "/slider-pics/iPhone 16 - 2.jpg",
-      alt: "Тенерифе",
-    },
-    {
-      img: "/slider-pics/Desktop - 7.jpg",
-      img_sm: "/slider-pics/iPhone 16 - 3.jpg",
-      alt: "Ідеальний відпочинок",
-    },
-  ];
-
   return (
-    <section className=" bg-mudblue/20">
+    <section className="bg-mudblue/20">
       <Splide
         options={{
           type: "loop",
@@ -40,38 +48,40 @@ export default function HeroCarousel({
           pagination: true,
           speed: 800,
         }}
-        aria-label="Головна карусель"
+        aria-label="Популярні напрямки"
       >
         {slides.map((slide, index) => (
           <SplideSlide key={index}>
             <a
               href="#form"
-              className="block relative"
+              className="relative block"
               onClick={(e) => {
-                e.preventDefault(); // prevent navigation
-                onSlideClick?.(); // open the drawer
+                e.preventDefault();
+                onSlideClick?.();
               }}
             >
-              <div className="relative mx-auto w-full md:w-[1500px] h-[450px] md:h-[650px]">
-                {/* Desktop Image */}
+              <div className="relative mx-auto h-[450px] w-full md:h-[650px] md:w-[1500px]">
                 <PublicImage
                   src={slide.img}
                   alt={slide.alt}
                   fill
-                  className="hidden sm:block object-center sm:object-cover"
+                  className="hidden object-cover object-center sm:block"
                 />
-
                 <PublicImage
                   src={slide.img_sm}
                   alt={slide.alt}
                   fill
-                  className="block object-contain object-center sm:hidden"
+                  className="block object-cover object-center sm:hidden"
                 />
-              </div>
-
-              {/* Overlay (optional, for captions) */}
-              <div className="absolute bottom-0 w-full hidden md:block bg-black/30 p-4 text-white">
-                <p className="text-lg font-semibold">{slide.alt}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 text-white md:p-8">
+                  <p className="text-2xl font-semibold md:text-4xl">
+                    {slide.label}
+                  </p>
+                  <p className="mt-1 max-w-xl text-sm text-white/90 md:text-lg">
+                    {slide.alt}
+                  </p>
+                </div>
               </div>
             </a>
           </SplideSlide>
