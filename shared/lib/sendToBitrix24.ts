@@ -9,7 +9,7 @@ export type BitrixLeadInput = {
 };
 
 const BITRIX_LEAD_URL =
-  "https://crm-tour.bitrix24.eu/rest/1/siftfmappk919apf/crm.lead.add.json";
+  "https://crm-tour.bitrix24.eu/rest/1/aa8n527bdhmdad25/crm.lead.add.json";
 
 export async function sendToBitrix24(formData: BitrixLeadInput) {
   try {
